@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="sample.android.databinding.SampleModel" />
+
+        <variable
+            name="activity"
+            type="sample.android.databinding.MainActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context="sample.android.databinding.MainActivity">
+
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userStatus"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@{model.online == true ? @color/colorAccent : @color/colorPrimary}" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/userStatus"
+                android:layout_toRightOf="@id/userStatus"
+                android:text="@{model.username}"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_toEndOf="@id/userStatus"
+                android:layout_toRightOf="@id/userStatus"
+                android:text="@{model.useremail}"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email"
+                android:layout_toEndOf="@id/userStatus"
+                android:layout_toRightOf="@id/userStatus"
+                android:text="@{model.online == true ? @string/online : @string/offline}"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnOnline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top"
+            android:layout_marginTop="10dp"
+            android:onClick="@{()->activity.onButtonClick(true)}"
+            android:text="@string/online" />
+
+        <Button
+            android:id="@+id/btnOffline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/btnOnline"
+            android:onClick="@{()->activity.onButtonClick(false)}"
+            android:text="@string/offline" />
+
+    </RelativeLayout>
+</layout>

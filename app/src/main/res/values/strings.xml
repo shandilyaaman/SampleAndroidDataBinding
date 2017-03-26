@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SampleAndroidDataBinding</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+</resources>
