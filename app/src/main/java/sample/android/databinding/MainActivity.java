@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         activityMainBinding = DataBindingUtil
                 .setContentView(this, R.layout.activity_main);
-        model = new SampleModel("Aman", "shandilya.aman@gmail.com", true);
+        model = new SampleModel("Android", "android@gmail.com", true);
         activityMainBinding.setModel(model);
         activityMainBinding.setActivity(this);
     }
